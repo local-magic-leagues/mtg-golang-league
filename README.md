@@ -1,4 +1,3 @@
-# mtg-golang-league
 ## Backend for mtg league
 
 ### Getting the package
@@ -8,11 +7,11 @@ go get github.com/local-magic-leagues/mtg-golang-league
 ```
 
 ### Setting up the API 
-1. To sart the server for the API go to main directory github.com/mtg-league-louisville/mtg-golang-league/ and run
+1. To sart the server for the API, go to the projects main directory and run
 ```
 go build
 ```
-2. After build completes run 
+2. After build completes run, run the binary
 ```
 ./mtg-golang-league
 ```
@@ -24,18 +23,18 @@ go build
 ```
 brew install postgresql
 ```
-- For linux, the command should be
+For linux, the command should be
 ```
 sudo apt-get install postgresql postgresql-contrib
 ```
 
 After installation, by default postgres creates:
-    - a database named postgres
-    - a super user for that dabase whose login info is the same as the user who did the installation
+- a database named postgres
+- a super user for that dabase whose login info is the same as the user who did the installation
 2. Install [pgAdmin](https://www.pgadmin.org/), or whatever other client you would like to use 
-    - You could also use the psql shell 
-    ```
-    psql [databasename]
-    ```
+- You could also use the psql shell 
+```
+psql [databasename]
+```
 
 
