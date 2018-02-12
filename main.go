@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
@@ -43,23 +44,40 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	users, err := db.Query("select * from public.user")
+	usersResult, err := db.Query("select * from public.user")
 	if err != nil {
 		panic(err)
 	}
-	for users.Next() {
+
+	var users []mtgUser
+	for usersResult.Next() {
 		var (
 			id       string
 			userName string
 		)
-		if err := users.Scan(&id, &userName); err != nil {
+
+		if err := usersResult.Scan(&id, &userName); err != nil {
 			log.Fatal(err)
 		}
 		userID, err := strconv.Atoi(id)
 		if err != nil {
 			panic(err)
 		}
+
 		user := mtgUser{userID, userName}
-		fmt.Print(user)
+		if err != nil {
+			panic(err)
+		}
+
+		users = append(users, user)
 	}
+
+	usersJSON, err := json.Marshal(users)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Print(string(usersJSON))
+
+	w.Write(usersJSON)
 }
