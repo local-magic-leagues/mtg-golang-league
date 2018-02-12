@@ -7,6 +7,7 @@ import (
 	_ "github.com/lib/pq"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 const (
@@ -48,12 +49,17 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	}
 	for users.Next() {
 		var (
-			userid   string
-			username string
+			id       string
+			userName string
 		)
-		if err := users.Scan(&userid, &username); err != nil {
+		if err := users.Scan(&id, &userName); err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("UserID: %s \nUserName: %s", string(userid), username)
+		userID, err := strconv.Atoi(id)
+		if err != nil {
+			panic(err)
+		}
+		user := mtgUser{userID, userName}
+		fmt.Print(user)
 	}
 }

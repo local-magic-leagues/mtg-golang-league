@@ -8,9 +8,13 @@ go get github.com/local-magic-leagues/mtg-golang-league
 ```
 
 ### Setting up the API 
-1. To sart the server for the API
+1. To sart the server for the API go to main directory github.com/mtg-league-louisville/mtg-golang-league/ and run
 ```
-go run main.go
+go build
+```
+2. After build completes run 
+```
+./mtg-golang-league
 ```
 2. Go to `http://localhost:8000/`
 
