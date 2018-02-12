@@ -1,5 +1,3 @@
-## Backend for mtg league
-
 ### Getting the package
 Get the go package
 ```
