@@ -1,5 +1,5 @@
 ### Getting the package
-Get the go package
+To pull down repo locally to work on it, get the go package
 ```
 go get github.com/local-magic-leagues/mtg-golang-league
 ```
