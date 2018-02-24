@@ -4,7 +4,14 @@ Get the go package
 go get github.com/local-magic-leagues/mtg-golang-league
 ```
 
-### Setting up the API 
+### Running the API in docker container
+Run the build script
+```
+./docker-builder.sh
+```
+Docket container will be listening on port 8000
+
+### Running the API locally
 1. To sart the server for the API, go to the projects main directory and run
 ```
 go build
